@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Payment - Sudarshan's Fitness</title>
+    <link rel="stylesheet" href="App.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #78B6B6;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .navbar {
+            width: 100%;
+            background-color: #04AA6D;
+            overflow: hidden;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            background-color: #028a50;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .qr-payment-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .membership-option {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 10px;
+            width: 30%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            text-align: center;
+        }
+        .membership-option h3 {
+            color: #2c3e50;
+        }
+        .membership-option p {
+            margin: 10px 0;
+        }
+        .membership-option img {
+            width: 100%;
+            height: auto;
+            max-width: 150px;
+            margin-top: 10px;
+        }
+        .membership-option button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .membership-option button:hover {
+            background-color: #028a50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>QR Code Payment</h1>
+        <div class="qr-payment-container">
+            <div class="membership-option">
+                <h3>6 Month Membership</h3>
+                <p>Price: ₹5500</p>
+                <img src="qr.jpg" alt="QR Code for 6 Month Membership">
+            </div>
+        </div>
+        <p>For verification of payment, WhatsApp 9957052223</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - Sudarshan's Fitness</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(120, 182, 182);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .navbar {
+            width: 100%;
+            background-color: #04AA6D;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #028a50;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        h1 {
+            color: #04AA6D;
+        }
+
+        .membership-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .membership-option {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 400px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .membership-option h3 {
+            color: #2c3e50;
+        }
+
+        .membership-option p {
+            margin: 10px 0;
+        }
+
+        .membership-option button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .membership-option button:hover {
+            background-color: #028a50;
+        }
+
+        .renew-button {
+            background-color: #f39c12;
+        }
+
+        .renew-button:hover {
+            background-color: #e67e22;
+        }
+
+        .profile-container {
+            display: none;
+        }
+
+        .profile-container input {
+            margin-bottom: 10px;
+            padding: 10px;
+            width: calc(100% - 22px);
+            box-sizing: border-box;
+        }
+
+        .profile-container button {
+            margin: 5px;
+        }
+    </style>
+    <script>
+        function showSection(section) {
+            document.querySelector('.membership-container').style.display = 'none';
+            document.querySelector('.profile-container').style.display = 'none';
+
+            document.querySelector(`.${section}`).style.display = 'block';
+        }
+
+        function enableEdit() {
+            document.getElementById('customer-name').disabled = false;
+            document.getElementById('mobile-no').disabled = false;
+            document.getElementById('save-btn').style.display = 'inline-block';
+            document.getElementById('edit-btn').style.display = 'none';
+        }
+
+        function saveProfile() {
+            document.getElementById('customer-name').disabled = true;
+            document.getElementById('mobile-no').disabled = true;
+            document.getElementById('save-btn').style.display = 'none';
+            document.getElementById('edit-btn').style.display = 'inline-block';
+
+            // Save the data (e.g., send to the server or save in localStorage)
+            const customerName = document.getElementById('customer-name').value;
+            const mobileNo = document.getElementById('mobile-no').value;
+            localStorage.setItem('customerName', customerName);
+            localStorage.setItem('mobileNo', mobileNo);
+        }
+
+        // Example user data, replace this with actual user data
+        const userId = localStorage.getItem('userId') || 'user123';
+        const customerName = localStorage.getItem('customerName') || 'John Doe';
+        const mobileNo = localStorage.getItem('mobileNo') || '1234567890';
+        const membershipDetails = '1 Month Membership';
+
+        window.onload = function() {
+            document.getElementById('user-id').textContent = userId;
+            document.getElementById('membership-details').textContent = membershipDetails;
+            document.getElementById('customer-name').value = customerName;
+            document.getElementById('mobile-no').value = mobileNo;
+        };
+    </script>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#" onclick="showSection('profile-container')">Account Profile</a>
+    </div>
+
+    <div class="container">
+        <div class="membership-container">
+            <h1>Welcome to Sudarshan's Fitness</h1>
+            <div class="membership-option">
+                <h3>1 Month Membership</h3>
+                <p>Price: ₹2000</p>
+                <button onclick="location.href='twothousand.html'">Buy Now</button>
+                <button onclick="location.href='eighthundred.html'" class="renew-button">Renew Membership</button>
+            </div>
+            <div class="membership-option">
+                <h3>3 Months Membership</h3>
+                <p>Price: ₹3500</p>
+                <button onclick="location.href='threethousandfivehundred.html'" >Buy Now</button>
+                <button onclick="location.href='tthousandfourhundred.html'" class="renew-button">Renew Membership</button>
+            </div>
+            <div class="membership-option">
+                <h3>6 Months Membership</h3>
+                <p>Price: ₹5500</p>
+                <button onclick="location.href='fivethousandfivehundred.html'" >Buy Now</button>
+                <button onclick="location.href='fourthousandfivehundred.html'" class="renew-button">Renew Membership</button>
+            </div>
+        </div>
+
+        <div class="profile-container">
+            <h1>Account Profile</h1>
+            <p>User ID: <span id="user-id"></span></p>
+            <p>Membership Details: <span id="membership-details"></span></p>
+            <p>
+                <label for="customer-name">Customer Name:</label><br>
+                <input type="text" id="customer-name" disabled>
+            </p>
+            <p>
+                <label for="mobile-no">Mobile No.:</label><br>
+                <input type="text" id="mobile-no" disabled>
+            </p>
+            <button id="edit-btn" onclick="enableEdit()">Edit</button>
+            <button id="save-btn" onclick="saveProfile()" style="display:none;">Save</button>
+        </div>
+    </div>
+</body>
+</html>

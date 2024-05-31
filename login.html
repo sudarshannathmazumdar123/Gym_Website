@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sudarshan's Fitness</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(120, 182, 182);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .imgcontainer {
+            text-align: center;
+            margin: 25px 0 15px 0;
+        }
+
+        .img3 {
+            width: 44%;
+            border-radius: 50%;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        input[type=text], input[type=password], input[type=email], input[type=tel] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, input[type=tel]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        hr {
+            border: 1px solid #f1f1f1;
+            margin-bottom: 25px;
+        }
+
+        button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+
+        button:hover {
+            opacity: 1;
+        }
+
+        .cancelbtn {
+            padding: 14px 20px;
+            background-color: #f44336;
+        }
+
+        .cancelbtn, .loginbtn {
+            float: left;
+            width: 50%;
+        }
+
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        @media screen and (max-width: 300px) {
+            .cancelbtn, .loginbtn {
+                width: 100%;
+            }
+        }
+    </style>
+    <script>
+        async function handleLogin(event) {
+            event.preventDefault();
+            const email = document.querySelector('input[name="email"]').value;
+            const password = document.querySelector('input[name="psw"]').value;
+
+            try {
+                const response = await fetch('http://localhost:5000/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+                if (response.status === 200) {
+                    localStorage.setItem('userId', data.user.email);
+                    localStorage.setItem('customerName', data.user.name);
+                    localStorage.setItem('mobileNo', data.user.mobile);
+                    window.location.href = 'welcome.html';
+                } else {
+                    alert(data.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="handleLogin(event)" style="border:1px solid #ccc; border-radius: 10px;">
+        <div class="container">
+            <div class="imgcontainer">
+                <img src="img3.png" alt="Sudarshan Fitness Gym" class="img3">
+            </div>
+
+            <h1>Login</h1>
+            <p>Please enter your email and password to login.</p>
+            <hr>
+
+            <label for="email"><b>Email</b></label>
+            <input type="email" placeholder="Enter Email" name="email" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+
+            <div class="clearfix">
+                <button onclick="location.href='login.html'" type="button" class="cancelbtn">Cancel</button>
+                <button onclick="location.href='welcome.html'" type="submit" class="loginbtn">Login</button>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

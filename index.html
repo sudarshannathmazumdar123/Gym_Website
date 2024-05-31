@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudarshan's Fitness</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('front-page-image.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            color: #fff;
+        }
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.6);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .header {
+            background-color: rgba(44, 62, 80, 0.8);
+            color: #fff;
+            padding: 1em 0;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        .nav {
+            text-align: center;
+            margin: 1em 0;
+        }
+        .nav button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 0.5em 1em;
+            margin: 0 0.5em;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .nav button:hover {
+            background-color: #2980b9;
+        }
+        .about, .contact, .pricing {
+            margin: 2em auto;
+            padding: 1em;
+            max-width: 800px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .about {
+            background-color: transparent;
+            color: #fff;
+        }
+        .contact {
+            background-color: transparent;
+            color: #fff;
+        }
+        .pricing {
+            background-color: rgba(211, 211, 211, 0.9);
+            border-radius: 5px;
+            padding: 1em;
+            color: #000;
+        }
+        .pricing .container {
+            width: 100%;
+            margin: 1em 0;
+            padding: 1em;
+            border: 1px solid #ccc;
+            text-align: center;
+            background-color: #ecf0f1;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .pricing .container h3 {
+            margin-top: 0;
+        }
+
+        @media screen and (max-width: 768px) {
+            .about, .contact, .pricing {
+                max-width: 90%;
+                margin: 1em auto;
+                padding: 1em;
+            }
+            .nav button {
+                width: 45%;
+                margin: 0.5em 0;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .header h1 {
+                font-size: 1.5em;
+            }
+            .nav button {
+                width: 100%;
+                margin: 0.5em 0;
+                padding: 0.5em;
+            }
+            .about, .contact, .pricing {
+                max-width: 95%;
+                margin: 0.5em auto;
+                padding: 0.5em;
+            }
+        }
+
+        @media screen and (max-width: 300px) {
+            .header h1 {
+                font-size: 1.2em;
+            }
+            .nav button {
+                width: 100%;
+                margin: 0.2em 0;
+                padding: 0.3em;
+            }
+            .about, .contact, .pricing {
+                max-width: 100%;
+                margin: 0.2em auto;
+                padding: 0.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="header">
+        <h1>Welcome to Sudarshan's Fitness</h1>
+    </div>
+
+    <div class="nav">
+        <button onclick="location.href='signup.html'">Sign Up</button>
+        <button onclick="location.href='login.html'">Login</button>
+    </div>
+
+    <div class="pricing">
+        <h2>Membership Plans</h2>
+        <div class="container">
+            <h3>1 Month</h3>
+            <p>Price: ₹2000</p>
+        </div>
+        <div class="container">
+            <h3>3 Months</h3>
+            <p>Price: ₹3500</p>
+        </div>
+        <div class="container">
+            <h3>6 Months</h3>
+            <p>Price: ₹5500</p>
+        </div>
+    </div>
+
+    <div class="about">
+        <h2>About Our Gym</h2>
+        <p>Welcome to Sudarshan's Fitness, where we believe in transforming lives through fitness. Our state-of-the-art facility and experienced trainers are dedicated to helping you achieve your fitness goals.</p>
+    </div>
+
+    <div class="contact">
+        <h2>Contact Us</h2>
+        <p>Phone: 9957052223</p>
+        <p>Email: <a href="mailto:sudarshannathmazumdar@gmail.com">sudarshannathmazumdar@gmail.com</a></p>
+    </div>
+
+</body>
+</html>
